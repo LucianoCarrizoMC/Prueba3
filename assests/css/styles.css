@@ -1,10 +1,30 @@
-body{
-    background-color: aqua;
+div{
+    background-color:rosybrown;color:white;padding:20px;
 }
-
 .h1color{
-    color: red;
+    color: black;
+    font-family:courier;
 }
 .h2color{
     color: white;
+    background-color: grey;
+    font-family:verdana;
+}
+section{
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+}
+input, textarea{
+    width: 100%;
+    margin-bottom: 5px;
+}
+button {
+    background-color: aqua;
+    color: black;
+    border-radius: 5px;
+}
+.novisible{
+    display: none;
+    color: red;
 }

@@ -1,38 +1,63 @@
+import { registrarP } from "./promesas";
 
 
-//window.addEventListener("load",()=>{
-    // document.getElementById("btncambiocolor").addEventListener("click",cambiarcolor)
-    // document.getElementById("btnregistrar").addEventListener("click",registrar)
-   // })
-
-
-
-
+window.addEventListener("load",()=>{
+    document.getElementById("btncambioColor").addEventListener("click",cambiarcolor)
+    document.getElementById("btnregistar").addEventListener("click",registrar)
+   })
 function registrar(){
-    let Ein1=document.getElementById("input1");
-    let Ein2=document.getElementById("input2")
-    let Ein3=document.getElementById("input3")
-    let Ein4=document.getElementById("input4")
-    let Ein5=document.getElementById("input5")
-    let Ein6=document.getElementById("input6")
-    let Ein7=document.getElementById("input7")
-    let Ein8=document.getElementById("input8")
 
-    let Vin1=Ein1.value
-    let Vin2=Ein2.value
-    let Vin3=Ein3.value
-    let Vin4=Ein4.value
-    let Vin5=Ein5.value
-    let Vin6=Ein6.value
-    let Vin7=Ein7.value
-    let Vin8=Ein8.value
+    console.log("hola")
+    let eNombre=document.getElementById("nombre");
+    let eApellido=document.getElementById("apellido");
+    let eRut=document.getElementById("rut");
+    //let eGenero=document.getElementById("genero")
+    let eEmail=document.getElementById("email")
+    let eNumeroTarjeta=document.getElementById("numeroTarjeta")
+    let eFechaExpiracion=document.getElementById("fechaExpiracion")
+    let eCvv=document.getElementById("cvv")
 
+    let vNombre=eNombre.value
+    let vApellido=eApellido.value
+    let vRut=eRut.value
+    //let vGenero=eGenero.value
+    let vEmail=eEmail.value
+    let vNumeroTarjeta=eNumeroTarjeta.value
+    let vFechaExpiracion=eFechaExpiracion.value
+    let vCvv=eCvv.value
 
+    let objeto={nombre:vNombre,
+        apellido:vApellido,
+        rut:vRut,
+        //genero:vGenero,
+        email:vEmail,
+        numeroTarjeta:vNumeroTarjeta,
+        fechaExpiracion:vFechaExpiracion,
+        cvv:vCvv}
 
-
+        registrarP(objeto).then(()=>{
+        alert("se registró con exito");
+    }).catch((r)=>{
+        console.log(r)
+    });
+    
 }
 
 function cambiarcolor(){
-    console.log("copetee")
+    let element123 = document.getElementsByClassName("h1color");
+    console.log("aloooo")
+
+    for (let index = 0; index < element123.length; index++) {
+        const clase112 = element123[index];
+        clase112.classList.remove("h1color");
+        clase112.classList.add("h2color");}
+        for (let index = 0; index < element123.length; index++) {
+            const clase112 = element123[index];
+            clase112.classList.remove("h1color");
+            clase112.classList.add("h2color");}
+
+    }
+
+
+
     
-}
