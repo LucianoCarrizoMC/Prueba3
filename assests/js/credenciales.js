@@ -1,3 +1,5 @@
+// Configuración de Firebase
+
 export const firebaseConfig = {
     apiKey: "AIzaSyClcPg40falOgqiZidyqqUaG6TuCgehQyw",
     authDomain: "prueba-proyect-96dc0.firebaseapp.com",

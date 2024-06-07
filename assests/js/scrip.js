@@ -1,17 +1,24 @@
 import { obtenerEstrellas,registrarE, editarE ,borrarE} from "./promesas.js";
 
-
+// Evento que se dispara cuando la página se ha cargado completamente
 window.addEventListener("load", () => {
+    // Event listener para el botón de cambiar color
     document.getElementById("btncambioColor").addEventListener("click", cambiarcolor);
+    // Event listener para el botón de registrar
     document.getElementById("btnregistar").addEventListener("click", registrar);
+    // Event listener para validar campos antes de registrar
     document.getElementById("btnregistar").addEventListener("click", validar);
+    // Event listener para el botón de actualizar
     document.getElementById("btnActualizar").addEventListener("click", actualizar);
-    traerDatos();
+    // Obtener datos al cargar la página
     //document.getElementById("btnEliminar").addEventListener("click",eliminar)
-
     traerDatos()
    })
+
+// Función para registrar una nueva estrella
 function registrar() {
+    // Recupera los valores de los campos del formulario
+
     let eNombre = document.getElementById("nombre");
     let eTipoEstrella = document.getElementById("tipoEstrella");
     let eConstelación = document.getElementById("constelación");
@@ -23,6 +30,7 @@ function registrar() {
     let eDescripcion = document.getElementById("descripcion");
     let eTemperatura = document.getElementById("temperatura");
 
+    // Recupera el valor del radio seleccionado
     let radios = document.getElementsByName("Tamano");
     let vTamanio = "";
     for (let i = 0; i < radios.length; i++) {
@@ -32,6 +40,7 @@ function registrar() {
         }
     }
 
+    // Crea un objeto con los valores recuperados
     let vNombre = eNombre.value;
     let vTipoEstrella = eTipoEstrella.value;
     let vConstelación = eConstelación.value;
@@ -43,6 +52,7 @@ function registrar() {
     let vDescripcion = eDescripcion.value;
     let vTemperatura = eTemperatura.value;
 
+    // Llama a la función para registrar la estrella
     let objeto = {
         nombre: vNombre,
         tipoEstrella: vTipoEstrella,
@@ -59,15 +69,15 @@ function registrar() {
         registrarE(objeto).then(()=>{
         alert("se registró con exito");}).catch((xxx)=>{
         console.log(xxx)
-        traerDatos()
+        traerDatos()// Actualizar la tabla después del registro
     });
     
 }
-
+// Función para cambiar el color de los elementos
 function cambiarcolor(){
     let element123 = document.getElementsByClassName("h1color");
     console.log("aloooo")
-
+    // Ciclo para cambiar la clase de los elementos los 2 a la vez tanto fondo como letras
     for (let index = 0; index < element123.length; index++) {
         const clase112 = element123[index];
         clase112.classList.remove("h1color");
@@ -80,10 +90,12 @@ function cambiarcolor(){
     }
 
 const traerDatos = ()=>{
-     // el parametro que esta dentro del then es un listado de algo
+    // Llama a la función que obtiene los datos de las estrellas
+    // el parametro que esta dentro del then es un listado de estrellas
     obtenerEstrellas().then((Estrellas)=>{
         let forma = '';
         console.log(Estrellas);
+        // Ciclo que recorre cada estrella y genera las filas de la tabla
         Estrellas.forEach((p) => {
             forma += "<tr>";
             forma += "<td>" + p.nombre + "</td>";
@@ -99,9 +111,10 @@ const traerDatos = ()=>{
             forma += "<td><button id='UPD" + p.id + "'>Editar</button></td>";
             forma += "<td><button id='DEL" + p.id + "'>Eliminar</button></td>";
             forma += "</tr>";
-        });
         console.log(forma);
+        // Inserta el contenido HTML en el elemento de la tabla
         document.getElementById("registroTabla").innerHTML = forma;
+        // Añade event listeners a los botones de editar y eliminar para cada estrella
         Estrellas.forEach((p) => {
             document.getElementById("UPD" + p.id).addEventListener('click', () => {
                 document.getElementById("UPDnombre").value = p.nombre;
@@ -117,11 +130,14 @@ const traerDatos = ()=>{
 
                 document.getElementById('btnActualizar').value = p.id;
             });
+            // Event listener para el botón de eliminar
             let eliminarcosa = document.getElementById('DEL'+p.id);
             eliminarcosa.addEventListener('click', ()=>{
                 eliminar(p.id);
-    })})})};
+    })})})})};
 function validar(){
+    // Llama a la función validarVacio para cada campo que necesita validación
+
     validarVacio("nombre");
     validarVacio("tipoEstrella");
     validarVacio("constelación");
@@ -132,7 +148,10 @@ function validar(){
     validarVacio("edad");
     validarVacio("descripcion");
     validarSelect("temperatura")}
+// Validar campos requeridos del formulario
 
+
+// Función para validar si un campo del formulario está vacío
 function validarVacio(idCampo){
     let elemento = document.getElementById(idCampo);//Recupera el elemento
     console.log(elemento);
@@ -148,10 +167,10 @@ function validarVacio(idCampo){
         camw123.classList.remove("novisible");
         camw123.classList.add("errorvisible");
     }};
-
+// Función para validar si se ha seleccionado una opción en un elemento <select>
 function validarSelect(idCampo) {
-    let elemento = document.getElementById(idCampo);
-    let valor = elemento.value.trim();
+    let elemento = document.getElementById(idCampo);// Recupera el elemento select
+    let valor = elemento.value.trim(); // Recupera el valor seleccionado
     let mensajeError = document.getElementById("p" + idCampo);
     if (valor === "") {
         mensajeError.classList.remove("novisible");
@@ -161,8 +180,9 @@ function validarSelect(idCampo) {
         mensajeError.classList.add("novisible");
     }
 }
-
+// Función para actualizar la información de una estrella
 const actualizar = () => {
+    // Recupera los valores de los campos del formulario de actualización
     let eNombre = document.getElementById("UPDnombre");
     let eTipoEstrella = document.getElementById("UPDtipoEstrella");
     let eConstelación = document.getElementById("UPDconstelación");
@@ -174,7 +194,7 @@ const actualizar = () => {
     let eTemperatura = document.getElementById("UPDtemperatura");
 
 
-
+// Obtiene los valores de los campos del formulario de actualización
     let vNombre = eNombre.value;
     let vTipoEstrella = eTipoEstrella.value;
     let vConstelación = eConstelación.value;
@@ -185,7 +205,7 @@ const actualizar = () => {
     let vEdad = eEdad.value;
     let vTemperatura = eTemperatura.value;
 
-
+// Crea un objeto con los valores recuperados
     let objeto = {
         nombre: vNombre,
         tipoEstrella: vTipoEstrella,
@@ -198,8 +218,9 @@ const actualizar = () => {
         temperatura: vTemperatura
 
     };
-
+    // Recupera el ID de la estrella a actualizar
     let id=document.getElementById("btnActualizar").value;
+    // Llama a la función para editar la estrella en el servidor
     editarE(objeto,id).then(()=>{
         alert("se actualizado correctamente")
         traerDatos()
@@ -208,11 +229,10 @@ const actualizar = () => {
         traerDatos()
     })};
 
-
+// Función para eliminar una estrella
 const eliminar = (id) => {
-    traerDatos()
     if (confirm("¿Estás seguro de que deseas eliminar este registro?\n")){
-
+        // Llama a la función para borrar la estrella
             borrarE(id).then(() => {
                 alert("Se eliminó correctamente");
                 traerDatos(); // Actualizar la tabla después de eliminar
