@@ -93,7 +93,7 @@ const traerDatos = ()=>{
     // Llama a la función que obtiene los datos de las estrellas
     // el parametro que esta dentro del then es un listado de estrellas
     obtenerEstrellas().then((Estrellas)=>{
-        let forma = '';
+        let forma="";
         console.log(Estrellas);
         // Ciclo que recorre cada estrella y genera las filas de la tabla
         Estrellas.forEach((p)=>{
@@ -112,6 +112,7 @@ const traerDatos = ()=>{
             forma+="<td><button id='DEL"+p.id+"'>Eliminar</button></td>";
             forma+="</tr>";
         console.log(forma);
+        });
         // Inserta el contenido HTML en el elemento de la tabla
         document.getElementById("registroTabla").innerHTML = forma;
         // Añade event listeners a los botones de editar y eliminar para cada estrella
@@ -134,7 +135,7 @@ const traerDatos = ()=>{
             let eliminarcosa = document.getElementById('DEL'+p.id);
             eliminarcosa.addEventListener('click', ()=>{
                 eliminar(p.id);
-    })})})})};
+    })})})};
 function validar(){
     // Llama a la función validarVacio para cada campo que necesita validación
 
