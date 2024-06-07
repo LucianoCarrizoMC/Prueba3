@@ -4,75 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="/assests/js/scrip.js"></script>
+    <script type="module" src="/assests/js/scrip.js"></script>
+    <script type="module" src="./assests/js/promesas.js"></script>
+
     <link rel="stylesheet" href="assests/css/styles.css">
 
 </head>
 <body class="h1color">
     <button id="btncambioColor">Modo oscuro</button>
     <div>
-    <h2>Suscripcion mensual a mi paguina de estrellas enanas</h2>
-    <p>Bienvenido a nuestra página de estrellas. Para acceder a contenido exclusivo y disfrutar de todos los beneficios que ofrecemos, por favor completa el siguiente formulario con los detalles de tu tarjeta de crédito. Este formulario es seguro y está diseñado para proteger tu información personal. Una vez que se procese tu pago, tendrás acceso inmediato a nuestra suscripción premium.</p>
+        <h2>Registro de estrellas</h2>
+        <p>Bienvenido al formulario de registro de estrellas. Este formulario permite ingresar y gestionar información sobre estrellas, ya sean celebridades, astros celestes u otros tipos de estrellas que desees registrar. A continuación, puedes añadir nuevos registros, ver una tabla con los datos ingresados, y editar o eliminar registros existentes.</p>
     </div>
-
 
     <h3 class="h1color">Tituloss</h3>
 
     <section>
-        <label>Nombre<span>*</span></label>
-        <input type="text" id="nombre" placeholder="Ingresa tu nombre">
-        <p class="novisible">Debes ingresar un nombre</p><br>
+        <label>Nombre de la Estrella</label>
+        <input type="text" id="nombre" placeholder="Ingresa Nombre">
+        <p id="pnombre" class="novisible">Debes ingresar un nombre</p><br>
 
-        <label>Apellido<span>*</span></label>
-        <input type="text" id="apellido" placeholder="Ingresa tu nombre">
-        <p class="novisible">Debes ingresar tu Apellido</p><br>
+        <label>Tipo de Estrella</label>
+        <input type="text" id="tipoEstrella" placeholder="Ingresa el tipo de estrella">
+        <p id="ptipoEstrella" class="novisible">Debes ingresar el tipo de estrellas</p><br>
 
-        <label>Rut<span>*</span></label>
-        <input type="text" id="rut" placeholder="Ingresa tu nombre">
-        <p class="novisible">Debes ingresar tu Rut</p><br>
+        <label>Constelación</label>
+        <input type="text" id="constelación" placeholder="Ingresa la constelación">
+        <p id="pconstelación" class="novisible">Debes ingresar la constrelacion</p><br>
 
-        <label>Genero<span>*</span></label>
-        <input type="radio" id="hombre" name="Genero" value="hombre">
-        <label for="hombre">Hombre</label><br>
-        <input type="radio" id="mujer" name="Genero" value="mujer">
-        <label for="mujer">Mujer</label><br>
-        <input type="radio" id="nobinario" name="Genero" value="nobinario">
-        <label for="nobinario">No binario</label>
-        <p class="novisible">Debes ingresar un Genero</p><br>
+        <label>Tamanio</label>
+        <input type="radio" id="grande" name="Tamano" value="grande" required>
+        <label for="grande">Hombre</label><br>
+        <input type="radio" id="mediana" name="Tamano" value="mediana" required>
+        <label for="mediana">Mediana</label><br>
+        <input type="radio" id="pequena" name="Tamano" value="pequena" required>
+        <label for="pequena">Pequeña</label><br>
+        <p class="novisible">Debes ingresar un tamaño</p><br>
         
-        <label>Email<span>*</span></label>
-        <input type="text" id="email" placeholder="Ingresa tu email">
-        <p class="novisible">Debes ingresar un nombre</p><br>
+        <label>Magnitud Aparente</label>
+        <input type="number" id="magnitud" placeholder="Ingresa la magnitud aparente" min="0" max="6">
+        <p id="pmagnitud" class="novisible">Debes ingresar la magnitud</p><br>
 
-        <label>Número de Tarjeta de Crédito<span>*</span></label>
-        <input type="text" id="numeroTarjeta" placeholder="Ingresa el número de tarjeta">
-        <p class="novisible">Debes ingresar un nombre</p><br>
+        <label>Distancia (años luz)</label>
+        <input type="number" id="distancia" placeholder="Ingresa la distancia" min="0">
+        <p id="pdistancia" class="novisible">Debes ingresar la distancia</p><br>
 
-        <label>Fecha de Expiración (MM/AA)<span>*</span></label>
-        <input type="text" id="fechaExpiracion" placeholder="MM/AA">
-        <p class="novisible">Debes ingresar un nombre</p><br>
+        <label>Edad (millones de años)</label>
+        <input type="number" id="edad" placeholder="Ingresa la edad" min="0">
+        <p id="pedad" class="novisible">Debes ingresar la edad</p><br>
 
-        <label>CVV<span>*</span></label>
-        <input type="text" id="cvv" placeholder="Ingresa el CVV" />
-        <p class="novisible">Debes ingresar un nombre</p>
+        <label>Nombre del descubridor</label>
+        <input type="text" id="descubridor" placeholder="Ingresa el nombre">
+        <p id="pdescubridor" class="novisible">Debes ingresar el nombre del descubridor</p>
+
+        <label>Descripción</label>
+        <textarea id="descripcion" placeholder="Ingresa una descripción" rows="4" cols="50"></textarea>
+        <p class="novisible" id="pdescripcion">Debes ingresar una descripción</p>
+
+        <label>Temperatura</label>
+        <select id="temperatura" required>
+           <option value="">Seleccione una Temperatura</option>
+            <option value="+33 000 K">mayo que 33000 K</option>
+            <option value="10 000-33 000 K">10000-33000 K</option>
+            <option value="7500-10 000 K">7500-10 000 K</option>
+            <option value="6000-7500 K">6000-7500 K</option>
+        </select>
+        <p class="novisible" id="ptemperatura">Debes ingresar una temperatura</p>
 
 
+        <button id="btnregistar">registar</button>
 
-
-        <img src="https://blog.uala.com.ar/wp-content/uploads/Partes-de-una-tarjeta_Dorso-scaled.jpg" width="500">
-
+        
     </section>
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Constelación</th>
+            <th>Tamaño</th>
+            <th>Descubridor</th>
+            <th>Magnitud</th>
+            <th>Distancia</th>
+            <th>Edad</th>
+            <th>Descripción</th>
+            <th>Temperatura</th>
+            <th>Acciones</th>
+            </tr>
+            <table id="registroTabla">
+            </table>
+    </table>
+
         
     
-    <button id="btnregistar">registar</button>
+
 
     
-<table>
+    <table>
+        <h1>Modificar</h1>
+        <input type="text" id="UPDnombre" placeholder="Ingresa Nombre"><br>
+        <input type="text" id="UPDtipoEstrella" placeholder="Ingresa el tipo de estrella"><br>
+        <input type="text" id="UPDconstelación" placeholder="Ingresa la constelación"><br>
+        <input type="number" id="UPDmagnitud" placeholder="Ingresa la magnitud aparente" min="0" max="6"><br>
+        <input type="number" id="UPDdistancia" placeholder="Ingresa la edad" min="0"><br>
+        <input type="number" id="UPDedad" placeholder="Ingresa la edad" min="0"><br>
+        <input type="text" id="UPDdescubridor" placeholder="Ingresa el nombre"><br>
+        <textarea id="UPDdescripcion" placeholder="Ingresa una descripción" rows="4" cols="50"></textarea>
 
-</table>
+
+        <label>Temperatura</label>
+        <select id="UPDtemperatura" required>
+           <option value="">Seleccione una Temperatura</option>
+            <option value="+33000 K">mayo que 33000 K</option>
+            <option value="10000-33000 K">10000-33000 K</option>
+            <option value="7500-10000 K">7500-10 000 K</option>
+            <option value="6000-7500 K">6000-7500 K</option>
+        </select>
+
+        <button id="btnActualizar">Actualizar</button>
 
 
-
+    </table>
 
 </body>
 </html>
