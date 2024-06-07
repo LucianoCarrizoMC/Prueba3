@@ -96,27 +96,27 @@ const traerDatos = ()=>{
         let forma = '';
         console.log(Estrellas);
         // Ciclo que recorre cada estrella y genera las filas de la tabla
-        Estrellas.forEach((p) => {
-            forma += "<tr>";
-            forma += "<td>" + p.nombre + "</td>";
-            forma += "<td>" + p.tipoEstrella + "</td>";
-            forma += "<td>" + p.constelación + "</td>";
-            //forma += "<td>" + p.Tamaño + "</td>";
-            forma += "<td>" + p.descubridor + "</td>";
-            forma += "<td>" + p.magnitud + "</td>";
-            forma += "<td>" + p.distancia + "</td>";
-            forma += "<td>" + p.edad + "</td>";
-            forma += "<td>" + p.descripcion + "</td>"
-            forma += "<td>" + p.temperatura + "</td>"
-            forma += "<td><button id='UPD" + p.id + "'>Editar</button></td>";
-            forma += "<td><button id='DEL" + p.id + "'>Eliminar</button></td>";
-            forma += "</tr>";
+        Estrellas.forEach((p)=>{
+            forma+="<tr>";
+            forma+="<td>"+p.nombre+"</td>";
+            forma+="<td>"+p.tipoEstrella+"</td>";
+            forma+="<td>"+p.constelación+"</td>";
+            //forma+="<td>"+p.Tamaño+"</td>";
+            forma+="<td>"+p.descubridor+"</td>";
+            forma+="<td>"+p.magnitud+"</td>";
+            forma+="<td>"+p.distancia+"</td>";
+            forma+="<td>"+p.edad+"</td>";
+            forma+="<td>"+p.descripcion+"</td>"
+            forma+="<td>"+p.temperatura+"</td>"
+            forma+="<td><button id='UPD"+p.id+"'>Editar</button></td>";
+            forma+="<td><button id='DEL"+p.id+"'>Eliminar</button></td>";
+            forma+="</tr>";
         console.log(forma);
         // Inserta el contenido HTML en el elemento de la tabla
         document.getElementById("registroTabla").innerHTML = forma;
         // Añade event listeners a los botones de editar y eliminar para cada estrella
         Estrellas.forEach((p) => {
-            document.getElementById("UPD" + p.id).addEventListener('click', () => {
+            document.getElementById("UPD"+p.id).addEventListener('click', () => {
                 document.getElementById("UPDnombre").value = p.nombre;
                 document.getElementById("UPDtipoEstrella").value = p.tipoEstrella;
                 document.getElementById("UPDconstelación").value = p.constelación;
